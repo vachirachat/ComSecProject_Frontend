@@ -31,6 +31,7 @@ export default function Blogview(props) {
             res => {
                 setCommentdata(res.data)
                 console.log(commentdata)
+                console.log(res.data)
             }
         )
         }
@@ -81,7 +82,7 @@ export default function Blogview(props) {
             <h3>{`${content}`}</h3>
             <h1>Comment</h1>
             {
-                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} />)
+                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} ownerId={d.ownerId} />)
             }
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" onChange={e => setComment(e.target.value)}></textarea>
             <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={commentHandler}><h5>Add Comment</h5></button>

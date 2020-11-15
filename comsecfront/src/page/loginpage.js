@@ -29,8 +29,6 @@ const Login = () => {
                 localStorage.setItem('token', res.data)
                 localStorage.setItem('username', username)
                 getUserData()
-                console.log(res)
-                // localStorage.setItem('userType', )
                 history.push("/allblog")
                 
                 setStatus(res.status)

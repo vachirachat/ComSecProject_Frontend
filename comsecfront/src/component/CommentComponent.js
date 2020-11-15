@@ -45,7 +45,7 @@ export default function CommentComponent(props) {
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}><h5>delete</h5></button>
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={e => setOpenedit(true)}><h5>edit</h5></button>
                 {
-                    openedit && 
+                    openedit && (localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
                     <div>
                     <input class="form-control" id="exampleFormControlInput1" placeholder="NewComment" style={{marginTop:'10px'}} onChange={e => setNewComment(e.target.value)}/>
                     <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}><h5>save</h5></button>
