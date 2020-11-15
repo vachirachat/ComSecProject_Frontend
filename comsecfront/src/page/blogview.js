@@ -75,7 +75,7 @@ export default function Blogview(props) {
                     <button type="button" class="btn btn-warning" style={{marginRight:'5px', fontSize: '18px'}} onClick={editHandler}>Edit</button> 
                     <button type="button" class="btn btn-danger" style={{marginRight:'5px', fontSize: '18px'}} onClick={deleteHandler}>Delete</button> 
                     </div>
-}           
+            }           
             <br />
             <h4>header</h4>
             <h6>{`${title}`}</h6>

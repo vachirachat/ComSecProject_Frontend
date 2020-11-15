@@ -19,9 +19,9 @@ export default function Navbar() {
             <nav class="navbar navbar-light bg-light">
                 <a href="/allblog"><span class="navbar-brand mb-0 h1">My Blog.com</span></a>
                 {localStorage.getItem("userId") !== undefined && 
-                    <div><h6 style={{float:'right'}}>Name : {localStorage.getItem("username")}</h6>
+                    <div><h6>Name : {localStorage.getItem("username")}</h6>
                 <a class="navbar-text" href="/login">
-                    <button href="/login" type="button" class="btn btn-warning" onClick={logout}>logout</button>
+                    <button href="/login" type="button" class="btn btn-warning" onClick={logout} style={{float:'right'}}>logout</button>
                 </a>
                 </div>
 }

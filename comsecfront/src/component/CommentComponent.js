@@ -41,9 +41,12 @@ export default function CommentComponent(props) {
                 <h5 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h5>
                 
                 <div>
-                 
+                 {(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
+                     <div>
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}>delete</button>
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={e => setOpenedit(true)}>edit</button>
+                 </div>
+                 }
                 {
                     openedit && (localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
                     <div>
