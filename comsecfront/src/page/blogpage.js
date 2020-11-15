@@ -3,6 +3,7 @@ import Cardblog from '../component/cardblog'
 import userReducer from '../redux/userReducer'; 
 import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux'
+import './style.css'
 
 const Blogpage = () => {
     const [fetch, setFetch] = useState(false)
@@ -32,8 +33,8 @@ const Blogpage = () => {
     }, [])
     
     return (
-        <div>
-            <button><a href="/createblog">new post</a></button>
+        <div style={{margin: "2%"}}>
+            <a href="/createblog"><button className="btn-newpost">New Post</button></a>
             {
                 data2.map(d => <Cardblog header={d.title} ownerName={d.ownerName} id={d._id} content={d.content} ownerId={d.ownerId}/>)
             }

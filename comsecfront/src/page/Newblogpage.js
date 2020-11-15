@@ -21,18 +21,19 @@ export default function Newblogpage() {
         )
     }
     return (
-        <div>
-            <h1>New blog</h1>
-             <div style={{width:'80%', margin:'auto'}}>
+        <div style={{margin: '2%'}}>
+            <h2>New blog</h2>
+             <div style={{width:'70%', margin:'auto'}}>
             <div>
-            <h1 style={{float:'left'}}>Title</h1>
+            <h3 style={{float:'left'}}>Title</h3>
             <input class="form-control" id="exampleFormControlInput1" placeholder="header" style={{marginTop:'10px'}} onChange={e => setTitle(e.target.value)}/>
             </div>
+            <br />
             <div>
-            <h1 style={{float:'left'}}>Content</h1>
+            <h3 style={{float:'left'}}>Content</h3>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" onChange={e => setContent(e.target.value)}></textarea>
             </div>
-            <button type="button" class="btn btn-primary" style={{marginRight:'5px', position:'absolute', right:'10%', marginTop:'10px'}} onClick={sendData}><h5>Save</h5></button> 
+            <button type="button" class="btn btn-warning" style={{marginRight:'5px', position:'absolute', right:'17%', marginTop:'10px', fontSize: '18px', fontWeight: 'bold'}} onClick={sendData}>Save</button> 
         </div>
         </div>
     )
