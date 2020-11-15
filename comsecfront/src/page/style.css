@@ -1,0 +1,25 @@
+.box-login{
+    width: 450px;
+    margin: auto;
+}
+.btn-newpost{
+    background-color: #ED553B;
+    color: white;
+    border: #ED553B;
+    border-radius: 4px;
+    padding: 8px;
+}
+.btn-newpost:active{
+    background-color: #ED553B;
+    color: white;
+    border: #ED553B;
+    border-radius: 4px;
+    padding: 8px;
+}
+.btn-newpost:focus{
+    background-color: #ED553B;
+    color: white;
+    border: #ED553B;
+    border-radius: 4px;
+    padding: 8px;
+}

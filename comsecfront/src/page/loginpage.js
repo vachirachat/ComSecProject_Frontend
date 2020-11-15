@@ -4,6 +4,7 @@ import userReducer from '../redux/userReducer';
 import {useSelector, useDispatch} from 'react-redux'
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import './style.css'
 
 const Login = () => {
     const [username, setUsername] = useState('')
@@ -54,15 +55,16 @@ const Login = () => {
     }
 
         return (
-            <div>
+            <div className="box-login">
+                <br />
                 <p>{`${username}`}</p>
                 <p>{`${password}`}</p>
                 <p>{`${token}`}</p>
                 <input type="text" class="form-control" placeholder="Username" aria-label="Username" onChange={e =>setUsername(e.target.value)}/>
-
+                <br />
                 <input type="password" class="form-control" placeholder="Password" aria-label="Password" onChange={e =>setPassword(e.target.value)}/>
-
-                <button type="button" class="btn btn-primary" onClick={signinhandler}>sign in</button>
+                <br />
+                <button type="button" class="btn btn-warning" onClick={signinhandler}>sign in</button>
             </div>
         )
 }

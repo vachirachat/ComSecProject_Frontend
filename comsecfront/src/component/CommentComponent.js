@@ -37,18 +37,18 @@ export default function CommentComponent(props) {
             <div class="card" style={{width:'70%', margin:'auto', marginTop:'20px'}}>
                 <div class="card-body row" style={{justifyContent:'space-between'}}>
                 
-                <h1 class="card-title" style={{marginLeft:'5%'}}>{`${props.msg}`}</h1>
-                <h1 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h1>
+                <h5 class="card-title" style={{marginLeft:'5%'}}>{`${props.msg}`}</h5>
+                <h5 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h5>
                 
                 <div>
                  
-                <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}><h5>delete</h5></button>
-                <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={e => setOpenedit(true)}><h5>edit</h5></button>
+                <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}>delete</button>
+                <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={e => setOpenedit(true)}>edit</button>
                 {
                     openedit && 
                     <div>
                     <input class="form-control" id="exampleFormControlInput1" placeholder="NewComment" style={{marginTop:'10px'}} onChange={e => setNewComment(e.target.value)}/>
-                    <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}><h5>save</h5></button>
+                    <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}>save</button>
                     </div>
                 }
                 

@@ -66,25 +66,30 @@ export default function Blogview(props) {
 
 
     return (
-        <div>
+        <div style={{margin: '1%'}}>
             {
 
                 (localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === ownerId) &&
                 <div>
-                    <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}><h5>Edit</h5></button> 
-                    <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}><h5>Delete</h5></button> 
+                    <button type="button" class="btn btn-warning" style={{marginRight:'5px', fontSize: '18px'}} onClick={editHandler}>Edit</button> 
+                    <button type="button" class="btn btn-danger" style={{marginRight:'5px', fontSize: '18px'}} onClick={deleteHandler}>Delete</button> 
                     </div>
-}
-            <h1>header</h1>
-            <h3>{`${title}`}</h3>
-            <h1>content</h1>
-            <h3>{`${content}`}</h3>
-            <h1>Comment</h1>
+}           
+            <br />
+            <h4>header</h4>
+            <h6>{`${title}`}</h6>
+            <br />
+            <h4>content</h4>
+            <h6>{`${content}`}</h6>
+            <br />
+            <h4>Comment</h4>
             {
                 commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} />)
             }
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" onChange={e => setComment(e.target.value)}></textarea>
-            <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={commentHandler}><h5>Add Comment</h5></button>
+            <br />
+            <textarea style={{width: '70%', margin: 'auto'}} class="form-control" id="exampleFormControlTextarea1" rows="10" onChange={e => setComment(e.target.value)}></textarea>
+            <br />
+            <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={commentHandler}>Add Comment</button>
         </div>
     )
 }
