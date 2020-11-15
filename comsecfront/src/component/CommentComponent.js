@@ -34,11 +34,11 @@ export default function CommentComponent(props) {
 
     return (
         <div>
-            <div class="card" style={{width:'70%', margin:'auto', marginTop:'20px'}}>
+            <div class="card" style={{width:'80%', margin:'auto', marginTop:'20px'}}>
                 <div class="card-body row" style={{justifyContent:'space-between'}}>
                 
-                <h5 class="card-title" style={{marginLeft:'5%'}}>{`${props.msg}`}</h5>
-                <h5 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h5>
+                <h6 class="card-title" style={{marginLeft:'5%'}}>{`${props.msg}`}</h6>
+                <h6 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h6>
                 
                 <div>
                  {(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
@@ -48,7 +48,7 @@ export default function CommentComponent(props) {
                  </div>
                  }
                 {
-                    openedit && (localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
+                    openedit && 
                     <div>
                     <input class="form-control" id="exampleFormControlInput1" placeholder="NewComment" style={{marginTop:'10px'}} onChange={e => setNewComment(e.target.value)}/>
                     <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}>save</button>
