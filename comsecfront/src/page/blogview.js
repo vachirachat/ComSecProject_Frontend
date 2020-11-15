@@ -31,7 +31,6 @@ export default function Blogview(props) {
             res => {
                 setCommentdata(res.data)
                 console.log(commentdata)
-                console.log(res.data)
             }
         )
         }
@@ -77,20 +76,29 @@ export default function Blogview(props) {
                     </div>
 }           
             <br />
-            <h4>header</h4>
-            <h6>{`${title}`}</h6>
-            <br />
-            <h4>content</h4>
-            <h6>{`${content}`}</h6>
-            <br />
+            <div style={{padding: '2%', margin: 'auto', width: '800px'}}>
+            <div style={{textAlign: 'left', marginLeft: '30px',marginRight: '30px'}}>
+            <h4>Header</h4>
+            <div style={{margin: '20px'}}>
+                <h6>{`${title}`}</h6>
+            </div>
+            <hr />
+            <h4>Content</h4>
+            <div style={{margin: '20px'}}>
+                <h6>{`${content}`}</h6>
+            </div>
+            <hr />
             <h4>Comment</h4>
             {
-                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} ownerId={d.ownerId} />)
+                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} />)
             }
             <br />
-            <textarea style={{width: '70%', margin: 'auto'}} class="form-control" id="exampleFormControlTextarea1" rows="10" onChange={e => setComment(e.target.value)}></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" onChange={e => setComment(e.target.value)}></textarea>
             <br />
             <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={commentHandler}>Add Comment</button>
+            </div>
+            </div>
+           
         </div>
     )
 }
