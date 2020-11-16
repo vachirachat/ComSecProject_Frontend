@@ -12,8 +12,8 @@ export default function Newblogpage() {
         // console.log(localStorage.getItem("token"))
         if (title === '' || content === '') {
             alert('Please type anything in title or content')
-        }
-        axios.post('http://localhost:3000/post', {
+        } else {
+            axios.post('http://localhost:3000/post', {
                 title: title,
                 content: content
             }, {headers: {'Authorization': "bearer "+localStorage.getItem("token")}})
@@ -24,6 +24,8 @@ export default function Newblogpage() {
         ).catch((err)=> {
             alert(err)
         })
+        }
+        
     }
     return (
         <div style={{margin: '2%'}}>
