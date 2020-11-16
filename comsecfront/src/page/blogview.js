@@ -55,7 +55,11 @@ export default function Blogview(props) {
     }
 
     const commentHandler = () => {
-        axios.post('http://localhost:3000/comment', {
+        if (comment === ''){
+            alert('please enter some comment')
+        }
+        else{
+            axios.post('http://localhost:3000/comment', {
                 pid: id,
                 msg: comment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
@@ -64,6 +68,7 @@ export default function Blogview(props) {
             ).catch((err)=> {
                 alert(err)
             })
+        }
     }
 
 
