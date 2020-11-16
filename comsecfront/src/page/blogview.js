@@ -55,7 +55,11 @@ export default function Blogview(props) {
     }
 
     const commentHandler = () => {
-        axios.post('http://localhost:3000/comment', {
+        if (comment === ''){
+            alert('please enter some comment')
+        }
+        else{
+            axios.post('http://localhost:3000/comment', {
                 pid: id,
                 msg: comment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
@@ -64,6 +68,7 @@ export default function Blogview(props) {
             ).catch((err)=> {
                 alert(err)
             })
+        }
     }
 
 
@@ -82,12 +87,12 @@ export default function Blogview(props) {
             <div style={{textAlign: 'left', marginLeft: '30px',marginRight: '30px'}}>
             <h4>Header</h4>
             <div style={{margin: '20px'}}>
-                <h6>{`${title}`}</h6>
+                <h6 style={{wordBreak: 'break-word'}}>{`${title}`}</h6>
             </div>
             <hr />
             <h4>Content</h4>
-            <div style={{margin: '20px'}}>
-                <h6>{`${content}`}</h6>
+            <div style={{margin: '20px',}}>
+                <h6 style={{wordBreak: 'break-word'}}>{`${content}`}</h6>
             </div>
             <hr />
             <h4>Comment</h4>
