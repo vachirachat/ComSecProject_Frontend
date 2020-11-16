@@ -16,6 +16,11 @@ export default function Blogview(props) {
     const history = useHistory()
 
     useEffect(() => {
+        console.log('userID')
+        console.log(localStorage.getItem("userId"))
+        console.log(ownerId)
+        console.log(localStorage.getItem("userId") === ownerId)
+        console.log(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === ownerId)
         fetchData()
     },[])
 
@@ -90,7 +95,7 @@ export default function Blogview(props) {
             <hr />
             <h4>Comment</h4>
             {
-                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} />)
+                commentdata.map(d => <CommentComponent msg={d.msg} ownerName={d.ownerName} id={d._id} ownerId={d.ownerId}/>)
             }
             <br />
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" onChange={e => setComment(e.target.value)}></textarea>

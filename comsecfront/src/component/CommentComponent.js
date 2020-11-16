@@ -5,6 +5,12 @@ export default function CommentComponent(props) {
     const [newComment, setNewComment] = useState('')
     const [openedit, setOpenedit] = useState(false)
     const history = useHistory()
+
+    useEffect(() => {
+        console.log('CommentComponent')
+        console.log(props.ownerId)
+        console.log(localStorage.getItem("userId") === props.ownerId)
+    }, [])
     const deleteHandler = () => {
         axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 res => {
