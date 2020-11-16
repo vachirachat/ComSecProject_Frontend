@@ -47,14 +47,14 @@ export default function CommentComponent(props) {
     return (
         <div>
             <div class="card" style={{width:'80%', margin:'auto', marginTop:'20px'}}>
-                <div class="card-body row" style={{justifyContent:'space-between'}}>
+                <div class="card-body column">
                 
-                <h6 class="card-title" style={{marginLeft:'5%'}}>{`${props.msg}`}</h6>
                 <h6 class="card-title" style={{marginLeft:'5%'}}>{`${props.ownerName}`}</h6>
+                <h6 class="card-title" style={{marginLeft:'5%', width: '90%'}}>{`${props.msg}`}</h6>
                 
-                <div>
+               
                  {(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === props.ownerId) &&
-                     <div>
+                     <div style={{float: 'right'}}>
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={deleteHandler}>delete</button>
                 <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={e => setOpenedit(true)}>edit</button>
                  </div>
@@ -62,14 +62,14 @@ export default function CommentComponent(props) {
                 {
                     openedit && 
                     <div>
-                    <input class="form-control" id="exampleFormControlInput1" placeholder="NewComment" style={{marginTop:'10px'}} onChange={e => setNewComment(e.target.value)}/>
-                    <button type="button" class="btn btn-primary" style={{marginRight:'5px'}} onClick={editHandler}>save</button>
+                    <input class="form-control" id="exampleFormControlInput1" placeholder="NewComment" style={{marginTop:'60px'}} onChange={e => setNewComment(e.target.value)}/>
+                    <button type="button" class="btn btn-primary" style={{marginTop:'5px', float: 'right'}} onClick={editHandler}>save</button>
                     </div>
                 }
                 
                 </div>
             </div>
-            </div>
+            
         </div>
     )
 }

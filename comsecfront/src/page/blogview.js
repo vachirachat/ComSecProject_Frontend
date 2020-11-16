@@ -87,12 +87,12 @@ export default function Blogview(props) {
             <div style={{textAlign: 'left', marginLeft: '30px',marginRight: '30px'}}>
             <h4>Header</h4>
             <div style={{margin: '20px'}}>
-                <h6>{`${title}`}</h6>
+                <h6 style={{wordBreak: 'break-word'}}>{`${title}`}</h6>
             </div>
             <hr />
             <h4>Content</h4>
-            <div style={{margin: '20px'}}>
-                <h6>{`${content}`}</h6>
+            <div style={{margin: '20px',}}>
+                <h6 style={{wordBreak: 'break-word'}}>{`${content}`}</h6>
             </div>
             <hr />
             <h4>Comment</h4>

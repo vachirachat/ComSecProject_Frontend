@@ -15,7 +15,7 @@ export default function Cardblog(props) {
             <div class="card" style={{width:'800px', margin:'auto', marginTop:'20px'}}>
                 <div class="card-body row" style={{justifyContent:'space-between'}}>
                 
-                <h5 class="card-title" style={{marginLeft:'5%', marginTop: 'auto', marginBottom: 'auto'}}>{`${props.header}`}</h5>
+                <h5 class="card-title" style={{marginLeft:'5%', marginTop: 'auto', marginBottom: 'auto', width: '50%', textAlign: 'left'}}>{`${props.header}`}</h5>
                 <h5 class="card-title" style={{marginLeft:'5%', marginTop: 'auto', marginBottom: 'auto'}}>{`${props.ownerName}`}</h5>
                 
                 <div>
