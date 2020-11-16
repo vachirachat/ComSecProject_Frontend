@@ -9,7 +9,7 @@ export default function Newblogpage() {
     const history = useHistory()
 
     const sendData = () => {
-        console.log(localStorage.getItem("token"))
+        // console.log(localStorage.getItem("token"))
         axios.post('http://localhost:3000/post', {
                 title: title,
                 content: content

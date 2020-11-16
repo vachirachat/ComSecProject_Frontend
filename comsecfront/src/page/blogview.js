@@ -16,11 +16,11 @@ export default function Blogview(props) {
     const history = useHistory()
 
     useEffect(() => {
-        console.log('userID')
-        console.log(localStorage.getItem("userId"))
-        console.log(ownerId)
-        console.log(localStorage.getItem("userId") === ownerId)
-        console.log(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === ownerId)
+        // console.log('userID')
+        // console.log(localStorage.getItem("userId"))
+        // console.log(ownerId)
+        // console.log(localStorage.getItem("userId") === ownerId)
+        // console.log(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === ownerId)
         fetchData()
     },[])
 
@@ -35,7 +35,7 @@ export default function Blogview(props) {
         axios.get('http://localhost:3000/comment/pid/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 setCommentdata(res.data)
-                console.log(commentdata)
+                // console.log(commentdata)
             }
         )
         }

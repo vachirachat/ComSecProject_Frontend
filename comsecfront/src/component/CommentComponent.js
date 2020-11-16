@@ -6,16 +6,15 @@ export default function CommentComponent(props) {
     const [openedit, setOpenedit] = useState(false)
     const history = useHistory()
 
-    useEffect(() => {
-        console.log('CommentComponent')
-        console.log(props.ownerId)
-        console.log(localStorage.getItem("userId") === props.ownerId)
-    }, [])
+    // useEffect(() => {
+    //     console.log('CommentComponent')
+    //     console.log(props.ownerId)
+    //     console.log(localStorage.getItem("userId") === props.ownerId)
+    // }, [])
     const deleteHandler = () => {
         axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 res => {
-                    console.log('success')
-                    console.log("bearer "+localStorage.getItem("token"))
+                    alert('success to server')
                 }
             ).then(
                 history.push("/allblog")
@@ -24,10 +23,14 @@ export default function CommentComponent(props) {
     }
 
     const editHandler = () => {
+        // console.log(localStorage.getItem("token"))
+        // console.log(props.id)
         axios.patch('http://localhost:3000/comment/'+ props.id, {
                 msg: newComment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                alert('success to save server')
+                res => {
+                    alert('success to save server')
+                }
                 
             ).then(
                 history.push("/allblog")
