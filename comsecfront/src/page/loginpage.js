@@ -22,7 +22,7 @@ const Login = () => {
     const dispatch = useDispatch()
     // const store = createStore(userReducer)
     const signinhandler = () => {
-        axios.post('http://localhost:8000/auth/login', user).then(
+        axios.post('http://localhost:3000/auth/login', user).then(
             res => {
                 console.log('success')
                 setToken(res.data)
@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     const getUserData = () => {
-        axios.get('http://localhost:8000/user/me', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+        axios.get('http://localhost:3000/user/me', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 console.log('/user/me')
                 console.log(res)

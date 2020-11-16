@@ -15,7 +15,7 @@ const Blogpage = () => {
 
     // console.log(state)
     const getPost = () => {
-        axios.get('http://localhost:8000/post', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+        axios.get('http://localhost:3000/post', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 console.log('success')
                 console.log("bearer "+localStorage.getItem("token"))

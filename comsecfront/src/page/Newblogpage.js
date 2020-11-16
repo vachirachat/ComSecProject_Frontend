@@ -10,7 +10,7 @@ export default function Newblogpage() {
 
     const sendData = () => {
         console.log(localStorage.getItem("token"))
-        axios.post('http://localhost:8000/post', {
+        axios.post('http://localhost:3000/post', {
                 title: title,
                 content: content
             }, {headers: {'Authorization': "bearer "+localStorage.getItem("token")}})

@@ -6,7 +6,7 @@ export default function CommentComponent(props) {
     const [openedit, setOpenedit] = useState(false)
     const history = useHistory()
     const deleteHandler = () => {
-        axios.delete('http://localhost:8000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+        axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 res => {
                     console.log('success')
                     console.log("bearer "+localStorage.getItem("token"))
@@ -18,7 +18,7 @@ export default function CommentComponent(props) {
     }
 
     const editHandler = () => {
-        axios.patch('http://localhost:8000/comment/'+ props.id, {
+        axios.patch('http://localhost:3000/comment/'+ props.id, {
                 msg: newComment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 alert('success to save server')

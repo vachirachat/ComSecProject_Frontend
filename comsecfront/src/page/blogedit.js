@@ -13,7 +13,7 @@ export default function Blogedit(props) {
     const {id} = match.params;
 
     const sendData = () => {
-        axios.patch('http://localhost:8000/post/'+id, {
+        axios.patch('http://localhost:3000/post/'+id, {
                 title: title,
                 content: content
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(

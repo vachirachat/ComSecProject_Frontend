@@ -20,14 +20,14 @@ export default function Blogview(props) {
     },[])
 
     const fetchData = () => {
-        axios.get('http://localhost:8000/post/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+        axios.get('http://localhost:3000/post/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 setTitle(res.data.title)
                 setContent(res.data.content)
                 setOwnerId(res.data.ownerId)
             }
         )
-        axios.get('http://localhost:8000/comment/pid/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+        axios.get('http://localhost:3000/comment/pid/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 setCommentdata(res.data)
                 console.log(commentdata)
@@ -35,7 +35,7 @@ export default function Blogview(props) {
         )
         }
     const deleteHandler = () => {
-            axios.delete('http://localhost:8000/post/' + id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
+            axios.delete('http://localhost:3000/post/' + id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 res => {
                     console.log('success')
                     console.log("bearer "+localStorage.getItem("token"))
@@ -50,7 +50,7 @@ export default function Blogview(props) {
     }
 
     const commentHandler = () => {
-        axios.post('http://localhost:8000/comment', {
+        axios.post('http://localhost:3000/comment', {
                 pid: id,
                 msg: comment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
