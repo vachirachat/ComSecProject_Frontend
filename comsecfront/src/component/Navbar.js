@@ -5,8 +5,6 @@ import { useHistory } from 'react-router-dom';
 export default function Navbar() {
     // const username = 
     const state = useSelector(state => state)
-    console.log('this is navbar')
-    console.log(state)
     const history = useHistory();
 
     const logout = () => {

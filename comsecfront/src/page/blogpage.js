@@ -18,17 +18,14 @@ const Blogpage = () => {
         axios.get('http://localhost:3000/post', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
                 console.log('success')
-                console.log("bearer "+localStorage.getItem("token"))
                 setData2(res.data)
-            }
-        ).then(
-            
-        ).catch(
-        )
+            })
+            .catch((err)=> {
+                alert(err)
+            })
     }
     useEffect(() => {
         getPost()
-        console.log(data2 === [])
         
     }, [])
     

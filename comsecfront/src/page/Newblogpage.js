@@ -10,6 +10,9 @@ export default function Newblogpage() {
 
     const sendData = () => {
         // console.log(localStorage.getItem("token"))
+        if (title === '' || content === '') {
+            alert('Please type anything in title or content')
+        }
         axios.post('http://localhost:3000/post', {
                 title: title,
                 content: content
@@ -18,7 +21,9 @@ export default function Newblogpage() {
             alert('post to server success')
         ).then(
             history.push("allblog")
-        )
+        ).catch((err)=> {
+            alert(err)
+        })
     }
     return (
         <div style={{margin: '2%'}}>

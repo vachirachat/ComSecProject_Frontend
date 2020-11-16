@@ -18,13 +18,11 @@ export default function Blogedit(props) {
                 content: content
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 alert('success to save server')
-                
             ).then(
                 history.push("/allblog")
-            )
-            .catch( err =>
-                alert('please try again')
-            )
+            ).catch((err)=> {
+                alert(err)
+            })
     }
 
 

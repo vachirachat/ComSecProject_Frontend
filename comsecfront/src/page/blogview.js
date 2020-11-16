@@ -43,12 +43,12 @@ export default function Blogview(props) {
             axios.delete('http://localhost:3000/post/' + id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 res => {
                     console.log('success')
-                    console.log("bearer "+localStorage.getItem("token"))
                 }
             ).then(
                 history.push("/allblog")
-            ).catch(
-            )
+            ).catch((err)=> {
+                alert(err)
+            })
         }
     const editHandler = () => {
         history.push("/blogedit/"+id)
@@ -61,12 +61,9 @@ export default function Blogview(props) {
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 alert('success to save server')
                 
-            ).then(
-                
-            )
-            .catch( err =>
-                alert('please try again')
-            )
+            ).catch((err)=> {
+                alert(err)
+            })
     }
 
 

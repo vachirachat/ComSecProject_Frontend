@@ -18,8 +18,9 @@ export default function CommentComponent(props) {
                 }
             ).then(
                 history.push("/allblog")
-            ).catch(
-            )
+            ).catch((err)=> {
+                alert(err)
+            })
     }
 
     const editHandler = () => {
@@ -34,10 +35,9 @@ export default function CommentComponent(props) {
                 
             ).then(
                 history.push("/allblog")
-            )
-            .catch( err =>
-                alert('please try again')
-            )
+            ).catch((err)=> {
+                alert(err)
+            })
 
     }
 

@@ -18,36 +18,30 @@ const Login = () => {
     }
 
     const history = useHistory();
-    const state = useSelector(state => state)
-    const dispatch = useDispatch()
+    // const state = useSelector(state => state)
+    // const dispatch = useDispatch()
     // const store = createStore(userReducer)
     const signinhandler = () => {
         axios.post('http://localhost:3000/auth/login', user).then(
             res => {
                 console.log('success')
                 setToken(res.data)
-                dispatch({type:"setToken", token: res.data})
                 localStorage.setItem('token', res.data)
                 localStorage.setItem('username', username)
                 getUserData()
                 history.push("/allblog")
-                
                 setStatus(res.status)
             }
-        ).catch(err =>
-            alert('cant login')
-        )
+        ).catch((err)=> {
+            alert(err)
+        })
     }
 
     const getUserData = () => {
         axios.get('http://localhost:3000/user/me', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
-                console.log('/user/me')
-                console.log(res)
                 localStorage.setItem('userId', res.data._id)
                 localStorage.setItem('userType', res.data.role)
-                console.log('usertype')
-                console.log(localStorage.getItem('userType'))
             }
         )
     }
