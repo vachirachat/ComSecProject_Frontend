@@ -13,7 +13,10 @@ export default function Blogedit(props) {
     const {id} = match.params;
 
     const sendData = () => {
-        axios.patch('http://localhost:3000/post/'+id, {
+        if (title === '' || content === '') {
+            alert('Please type anything in title or content')
+        } else {
+            axios.patch('http://localhost:3000/post/'+id, {
                 title: title,
                 content: content
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
@@ -23,6 +26,9 @@ export default function Blogedit(props) {
             ).catch((err)=> {
                 alert(err)
             })
+        }
+
+        
     }
 
 

@@ -26,6 +26,9 @@ export default function CommentComponent(props) {
     const editHandler = () => {
         // console.log(localStorage.getItem("token"))
         // console.log(props.id)
+        if (newComment === '') {
+            alert('please enter some comment')
+        } else {
         axios.patch('http://localhost:3000/comment/'+ props.id, {
                 msg: newComment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
@@ -39,7 +42,7 @@ export default function CommentComponent(props) {
                 alert(err)
             })
 
-    }
+    }}
 
     return (
         <div>
