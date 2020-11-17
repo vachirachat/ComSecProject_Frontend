@@ -45,7 +45,8 @@ export default function Blogview(props) {
                     console.log('success')
                 }
             ).then(
-                history.push("/allblog")
+                history.push("/allblog"),
+                window.location.reload(false)
             ).catch((err)=> {
                 alert(err)
             })
@@ -63,7 +64,8 @@ export default function Blogview(props) {
                 pid: id,
                 msg: comment
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                alert('success to save server')
+                alert('success to save server'),
+                window.location.reload(false)
                 
             ).catch((err)=> {
                 alert(err)

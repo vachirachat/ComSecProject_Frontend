@@ -22,7 +22,8 @@ export default function Blogedit(props) {
             }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
                 alert('success to save server')
             ).then(
-                history.push("/allblog")
+                history.push("/allblog"),
+                window.location.reload(false)
             ).catch((err)=> {
                 alert(err)
             })

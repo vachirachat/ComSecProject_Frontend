@@ -17,7 +17,7 @@ export default function CommentComponent(props) {
                     alert('success to server')
                 }
             ).then(
-                history.push("/allblog")
+                window.location.reload(false)
             ).catch((err)=> {
                 alert(err)
             })
@@ -37,7 +37,7 @@ export default function CommentComponent(props) {
                 }
                 
             ).then(
-                history.push("/allblog")
+                window.location.reload(false)
             ).catch((err)=> {
                 alert(err)
             })

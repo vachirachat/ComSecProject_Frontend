@@ -20,7 +20,8 @@ export default function Newblogpage() {
         .then(
             alert('post to server success')
         ).then(
-            history.push("allblog")
+            history.push("allblog"),
+            window.location.reload(false)
         ).catch((err)=> {
             alert(err)
         })
