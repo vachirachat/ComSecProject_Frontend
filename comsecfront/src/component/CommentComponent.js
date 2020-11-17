@@ -13,9 +13,9 @@ export default function CommentComponent(props) {
     // }, [])
     const deleteHandler = () => {
         axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                res => {
-                    alert('success to server')
-                }
+               
+                    alert('success to server'),
+                    window.location.reload(false)
             ).then(
                 window.location.reload(false)
             ).catch((err)=> {

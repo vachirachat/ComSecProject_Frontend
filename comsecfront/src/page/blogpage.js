@@ -17,7 +17,7 @@ const Blogpage = () => {
     const getPost = () => {
         axios.get('http://localhost:3000/post', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
             res => {
-                console.log('success')
+                // console.log('success')
                 setData2(res.data)
             })
             .catch((err)=> {
@@ -27,7 +27,7 @@ const Blogpage = () => {
     useEffect(() => {
         getPost()
         
-    }, [])
+    }, [data2])
     
     return (
         <div style={{margin: "2%"}}>
