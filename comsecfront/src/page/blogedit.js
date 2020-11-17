@@ -12,24 +12,18 @@ export default function Blogedit(props) {
     const {match} = props
     const {id} = match.params;
 
-    const sendData = () => {
+    const sendData = async() => {
         if (title === '' || content === '') {
             alert('Please type anything in title or content')
         } else {
-            axios.patch('http://localhost:3000/post/'+id, {
+            var res = await axios.patch('http://localhost:3000/post/'+id, {
                 title: title,
                 content: content
-            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                alert('success to save server')
-            ).then(
-                history.push("/allblog"),
-                window.location.reload(false)
-            ).catch((err)=> {
-                alert(err)
-            })
+            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}})
+            alert(res.statusText)
+            history.push("/allblog")
+            window.location.reload(false)
         }
-
-        
     }
 
 

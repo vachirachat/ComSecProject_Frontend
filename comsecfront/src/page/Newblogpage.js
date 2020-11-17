@@ -8,25 +8,19 @@ export default function Newblogpage() {
     const [content, setContent] = useState('')
     const history = useHistory()
 
-    const sendData = () => {
+    const sendData = async() => {
         // console.log(localStorage.getItem("token"))
         if (title === '' || content === '') {
             alert('Please type anything in title or content')
         } else {
-            axios.post('http://localhost:3000/post', {
+            var res = await axios.post('http://localhost:3000/post', {
                 title: title,
                 content: content
             }, {headers: {'Authorization': "bearer "+localStorage.getItem("token")}})
-        .then(
-            alert('post to server success')
-        ).then(
-            history.push("allblog"),
+            alert(res.statusText)
+            history.push("allblog")
             window.location.reload(false)
-        ).catch((err)=> {
-            alert(err)
-        })
         }
-        
     }
     return (
         <div style={{margin: '2%'}}>

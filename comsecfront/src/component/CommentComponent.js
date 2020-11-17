@@ -11,36 +11,32 @@ export default function CommentComponent(props) {
     //     console.log(props.ownerId)
     //     console.log(localStorage.getItem("userId") === props.ownerId)
     // }, [])
-    const deleteHandler = () => {
-        axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-               
-                    alert('success to server'),
-                    window.location.reload(false)
-            ).then(
-                window.location.reload(false)
-            ).catch((err)=> {
-                alert(err)
-            })
+    const deleteHandler = async() => {
+        var res = await axios.delete('http://localhost:3000/comment/' + props.id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}})
+        alert(res.statusText)
+        window.location.reload(false)
     }
 
-    const editHandler = () => {
+    const editHandler = async() => {
         // console.log(localStorage.getItem("token"))
         // console.log(props.id)
         if (newComment === '') {
             alert('please enter some comment')
         } else {
-        axios.patch('http://localhost:3000/comment/'+ props.id, {
+            var res = await axios.patch('http://localhost:3000/comment/'+ props.id, {
                 msg: newComment
-            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                res => {
-                    alert('success to save server')
-                }
-                
-            ).then(
-                window.location.reload(false)
-            ).catch((err)=> {
-                alert(err)
-            })
+            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}})
+            alert(res.statusText)
+            window.location.reload(false)
+            // .then(
+            //     res => {
+            //         alert('success to save server')
+            //     }
+            // ).then(
+            //     window.location.reload(false)
+            // ).catch((err)=> {
+            //     alert(err)
+            // })
 
     }}
 

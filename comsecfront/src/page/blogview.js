@@ -39,37 +39,29 @@ export default function Blogview(props) {
             }
         )
         }
-    const deleteHandler = () => {
-            axios.delete('http://localhost:3000/post/' + id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-            
-                    alert('success')
-                
-            ).then(
-                history.push("/allblog"),
-                window.location.reload(false)
-            ).catch((err)=> {
-                alert(err)
-            })
+
+    const deleteHandler = async() => {
+        console.log('del')
+        var res = await axios.delete('http://localhost:3000/post/' + id, {headers: {Authorization: "bearer "+localStorage.getItem("token")}})
+        alert(res.statusText)
+        history.push("/allblog")
+        window.location.reload(false)
         }
     const editHandler = () => {
         history.push("/blogedit/"+id)
     }
 
-    const commentHandler = () => {
+    const commentHandler = async() => {
         if (comment === ''){
             alert('please enter some comment')
         }
         else{
-            axios.post('http://localhost:3000/comment', {
+            var res = await axios.post('http://localhost:3000/comment', {
                 pid: id,
                 msg: comment
-            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
-                alert('success to save server'),
-                window.location.reload(false)
-                
-            ).catch((err)=> {
-                alert(err)
-            })
+            }, {headers: {Authorization: "bearer "+localStorage.getItem("token")}})
+            alert(res.statusText)
+            window.location.reload(false)
         }
     }
 
