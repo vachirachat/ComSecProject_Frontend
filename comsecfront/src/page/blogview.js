@@ -22,7 +22,7 @@ export default function Blogview(props) {
         // console.log(localStorage.getItem("userId") === ownerId)
         // console.log(localStorage.getItem("userType") === 'admin' || localStorage.getItem("userId") === ownerId)
         fetchData()
-    },[commentdata])
+    },[])
 
     const fetchData = () => {
         axios.get('http://localhost:3000/post/'+id , {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
