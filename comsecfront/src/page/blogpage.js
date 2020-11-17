@@ -11,7 +11,7 @@ const Blogpage = () => {
     const [firsttime, setFirsttime]= useState(true)
     const state = useSelector(state => state)
     const data = [{header:'google', id:'1'},{header:'google2', id:'2'},{header:'google3',id:'3'}]
-
+  
     // console.log(state)
     const getPost = () => {
         axios.get('http://localhost:3000/post', {headers: {Authorization: "bearer "+localStorage.getItem("token")}}).then(
@@ -26,7 +26,7 @@ const Blogpage = () => {
     useEffect(() => {
         getPost()
         
-    }, [data2])
+    }, [])
     
     return (
         <div style={{margin: "2%"}}>
